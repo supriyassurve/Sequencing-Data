@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Sequencing Data</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="sequence.js"></script>
+    <style>
+      .bg{background-color: #ccc}
+      div{width:400px}
+      .selected_listitem{background-color: #f0f0f0}
+      td{cursor: pointer}
+    </style>
+  </head>
+  <body>
+    <div>
+      <table id="first_sub_types" style="width: 100%">
+        <tbody>
+          <tr>
+            <th>Sequence</th>
+            <th>Name</th>
+            <th>Edit</th>
+          </tr>
+          <tr class="bg">
+            <td>1</td>
+            <td>One</td>
+            <td>Edit One</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Two</td>
+            <td>Edit Two</td>
+          </tr>
+          <tr class="bg">
+            <td>3</td>
+            <td>Three</td>
+            <td>Edit Three</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Four</td>
+            <td>Edit Four</td>
+          </tr>
+          <tr class="bg">
+            <td>5</td>
+            <td>Five</td>
+            <td>Edit Five</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Six</td>
+            <td>Edit Six</td>
+          </tr>
+          <tr class="bg">
+            <td>7</td>
+            <td>Seven</td>
+            <td>Edit Seven</td>
+          </tr>
+        </tbody>
+      </table>
+   </div>  
+   
+    <script type="text/javascript">  
+      fetch_data("FirstSubType", 3, "first_sub_types")
+    </script>
+  </body>
+</html>

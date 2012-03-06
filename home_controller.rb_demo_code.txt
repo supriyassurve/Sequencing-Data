@@ -1,0 +1,28 @@
+class SomeController < ApplicationController
+# reset_sequence action is called using the JavaScript Ajax function.
+# The JS function passes client id, model type(constant) and the array of
+# record id and the index to update in the constant
+def reset_sequence
+  model_type = params[:model_type]
+  paramssequences = params[:sequences]
+  clientid = params[:client_id].to_i
+  paramssequences.each do |sequences|
+    sequences.each do |sequence_array|
+      sequence_record = sequence_array.split(",")
+      id = sequence_record[0].to_i
+      sequence = sequence_record[1].to_i
+      object = model_type.singularize.camelize.constantize
+      object.update_all({:sequence => sequence}, {:id => id, :client_id => clientid})
+    end
+  end
+  respond_to do |format|
+  format.js {
+    render :update do |page|
+      # need this block with out this it gives 302 error if sucess block added for ajax in javascript
+      # else gives missing template error :: TODO
+    end
+  }
+  end
+end
+
+end
